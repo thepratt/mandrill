@@ -1,0 +1,13 @@
+.DS_Store
+.idea
+*.iml
+*.ipr
+*.log
+log.*
+.sbtserver*
+sbt-ui.sbt
+classes/
+target/
+sbt-launch.jar
+
+TestServer.scala
