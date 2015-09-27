@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Inbound
 
-case class Domains(key: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Domains(key: String) extends MandrillRequest

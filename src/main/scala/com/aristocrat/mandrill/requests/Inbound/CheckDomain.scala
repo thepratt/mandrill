@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Inbound
 
-case class CheckDomain(key: String, domain: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class CheckDomain(key: String, domain: String) extends MandrillRequest

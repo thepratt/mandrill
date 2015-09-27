@@ -1,5 +1,7 @@
 package com.aristocrat.mandrill.requests.Templates
 
+import com.aristocrat.mandrill.requests.MandrillRequest
+
 case class Add(
     key: String,
     name: String,
@@ -9,4 +11,4 @@ case class Add(
     code: String,
     text: String,
     publish: Boolean,
-    labels: Seq[String])
+    labels: Seq[String]) extends MandrillRequest

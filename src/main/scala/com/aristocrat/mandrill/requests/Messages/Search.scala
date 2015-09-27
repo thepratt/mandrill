@@ -1,14 +1,15 @@
-package com.aristocrat.mandrill.requests.Exports
+package com.aristocrat.mandrill.requests.Messages
 
 import com.aristocrat.mandrill.requests.MandrillRequest
 import org.joda.time.DateTime
 
-case class Activity(
+case class Search(
     key: String,
-    notifyEmail: Option[String] = None,
+    query: Option[String] = None,
     dateFrom: Option[DateTime] = None,
     dateTo: Option[DateTime] = None,
     tags: Seq[String] = Seq(),
     senders: Seq[String] = Seq(),
-    states: Seq[String] = Seq(),
-    apiKeys: Seq[String] = Seq()) extends MandrillRequest
+    apiKeys: Seq[String] = Seq(),
+    // max is 1000
+    limit: Int = 100) extends MandrillRequest

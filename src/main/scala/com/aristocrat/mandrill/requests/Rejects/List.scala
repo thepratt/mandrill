@@ -1,9 +1,9 @@
 package com.aristocrat.mandrill.requests.Rejects
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import com.aristocrat.mandrill.requests.MandrillRequest
 
 case class List(
     key: String,
     email: String,
     includeExpired: Boolean,
-    @JsonProperty("subaccount") subAccount: String)
+    subaccount: String) extends MandrillRequest

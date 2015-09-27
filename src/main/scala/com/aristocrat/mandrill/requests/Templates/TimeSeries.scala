@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Templates
 
-case class TimeSeries(key: String, name: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class TimeSeries(key: String, name: String) extends MandrillRequest

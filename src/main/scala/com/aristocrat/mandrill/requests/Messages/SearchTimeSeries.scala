@@ -1,5 +1,6 @@
 package com.aristocrat.mandrill.requests.Messages
 
+import com.aristocrat.mandrill.requests.MandrillRequest
 import org.joda.time.DateTime
 
 case class SearchTimeSeries(
@@ -9,4 +10,4 @@ case class SearchTimeSeries(
     dateTo: DateTime,
     tags: Seq[String],
     apiKeys: Seq[String],
-    limit: Int)
+    limit: Int) extends MandrillRequest

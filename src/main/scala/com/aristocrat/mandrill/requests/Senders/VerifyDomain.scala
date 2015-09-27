@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Senders
 
-case class VerifyDomain(key: String, domain: String, mailbox: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class VerifyDomain(key: String, domain: String, mailbox: String) extends MandrillRequest

@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Users
 
-case class Ping(key: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Ping(key: String) extends MandrillRequest

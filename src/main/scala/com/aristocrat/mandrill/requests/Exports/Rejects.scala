@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Exports
 
-case class Rejects(key: String, notifyEmail: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Rejects(key: String, notifyEmail: String) extends MandrillRequest

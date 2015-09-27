@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Urls
 
-case class TrackingDomains(key: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class TrackingDomains(key: String) extends MandrillRequest

@@ -1,5 +1,6 @@
 package com.aristocrat.mandrill.requests.Messages
 
+import com.aristocrat.mandrill.requests.MandrillRequest
 import org.joda.time.DateTime
 
 case class SendRaw(
@@ -11,4 +12,4 @@ case class SendRaw(
     async: Boolean,
     ipPool: String,
     sendAt: DateTime,
-    returnPathDomain: String)
+    returnPathDomain: String) extends MandrillRequest

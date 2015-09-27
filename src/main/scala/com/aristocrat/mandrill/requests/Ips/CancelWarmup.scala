@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Ips
 
-case class CancelWarmup(key: String, ip: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class CancelWarmup(key: String, ip: String) extends MandrillRequest

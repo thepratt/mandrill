@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Ips
 
-case class CreatePool(key: String, pool: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class CreatePool(key: String, pool: String) extends MandrillRequest

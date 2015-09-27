@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Ips
 
-case class PoolInfo(key: String, pool: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class PoolInfo(key: String, pool: String) extends MandrillRequest

@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Tags
 
-case class AllTimeSeries(key: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class AllTimeSeries(key: String) extends MandrillRequest

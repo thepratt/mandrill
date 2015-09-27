@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Tags
 
-case class Delete(key: String, tag: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Delete(key: String, tag: String) extends MandrillRequest

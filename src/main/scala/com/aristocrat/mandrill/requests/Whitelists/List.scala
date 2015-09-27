@@ -1,5 +1,5 @@
 package com.aristocrat.mandrill.requests.Whitelists
 
-case class List(
-    key: String,
-    email: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class List(key: String, email: String) extends MandrillRequest

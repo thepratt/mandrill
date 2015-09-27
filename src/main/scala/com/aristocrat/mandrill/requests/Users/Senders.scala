@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Users
 
-case class Senders(key: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Senders(key: String) extends MandrillRequest

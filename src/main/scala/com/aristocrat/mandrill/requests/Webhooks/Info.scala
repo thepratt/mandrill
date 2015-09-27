@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Webhooks
 
-case class Info(key: String, id: Int)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Info(key: String, id: Int) extends MandrillRequest

@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Subaccounts
 
-case class Pause(key: String, id: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Pause(key: String, id: String) extends MandrillRequest

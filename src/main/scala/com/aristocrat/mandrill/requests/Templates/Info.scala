@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Templates
 
-case class Info(key: String, name: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Info(key: String, name: String) extends MandrillRequest

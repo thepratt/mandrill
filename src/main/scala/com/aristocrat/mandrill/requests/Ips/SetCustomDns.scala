@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Ips
 
-case class SetCustomDns(key: String, ip: String, domain: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class SetCustomDns(key: String, ip: String, domain: String) extends MandrillRequest

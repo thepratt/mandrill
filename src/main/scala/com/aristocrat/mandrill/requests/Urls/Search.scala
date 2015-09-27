@@ -1,3 +1,5 @@
 package com.aristocrat.mandrill.requests.Urls
 
-case class Search(key: String, q: String)
+import com.aristocrat.mandrill.requests.MandrillRequest
+
+case class Search(key: String, q: String) extends MandrillRequest

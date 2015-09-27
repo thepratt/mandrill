@@ -1,6 +1,6 @@
 package com.aristocrat.mandrill.requests.Messages
 
-import com.aristocrat.mandrill.requests.Message
+import com.aristocrat.mandrill.requests.{MandrillRequest, Message}
 import org.joda.time.DateTime
 
 case class SendTemplate(
@@ -10,4 +10,4 @@ case class SendTemplate(
     message: Message,
     async: Boolean,
     ipPool: String,
-    sendAt: DateTime)
+    sendAt: DateTime) extends MandrillRequest
