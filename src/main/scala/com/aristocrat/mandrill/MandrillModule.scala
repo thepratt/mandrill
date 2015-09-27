@@ -1,11 +1,15 @@
 package com.aristocrat.mandrill
 
+import com.aristocrat.mandrill.requests.MandrillRequest
 import com.google.inject.{Inject, Singleton}
+import com.twitter.finagle.httpx.{Message, Response}
 import com.twitter.finatra.annotations.Flag
-import com.twitter.finatra.httpclient.HttpClient
 import com.twitter.finatra.httpclient.modules.HttpClientModule
+import com.twitter.finatra.httpclient.{HttpClient, RequestBuilder}
 import com.twitter.finatra.json.FinatraObjectMapper
 import com.twitter.inject.Logging
+import com.twitter.util.{Base64StringEncoder, Future}
+import org.jboss.netty.handler.codec.http.HttpHeaders
 
 object MandrillModule extends HttpClientModule with Logging {
 
@@ -16,6 +20,7 @@ object MandrillModule extends HttpClientModule with Logging {
     override def hostname = "mandrillapp.com"
     override def sslHostname = Some(s"$hostname:443")
     override def dest = s"$hostname:80"
+
 }
 
 @Singleton
@@ -26,9 +31,23 @@ class MandrillClient @Inject()(
     @Flag("mandrill.username") username: String,
     @Flag("mandrill.token") token: String) {
 
-    def get() = "get"
+    lazy val authorization = "Basic " + Base64StringEncoder.encode(s"$username:$token".toCharArray.map(_.toByte))
 
-    def post() = "post"
+    def post(path: String, body: MandrillRequest): Future[Response] = {
+        val request = RequestBuilder
+            .post(s"/api/1.0/$path")
+            .body(mapper.writeValueAsString(body))
+            .headers(
+                Map(
+                    HttpHeaders.Names.CONTENT_TYPE -> Message.ContentTypeJson,
+                    HttpHeaders.Names.AUTHORIZATION -> authorization
+                )
+            )
+
+        for {
+            response <- httpClient.execute(request)
+        } yield response
+    }
 
 }
 
