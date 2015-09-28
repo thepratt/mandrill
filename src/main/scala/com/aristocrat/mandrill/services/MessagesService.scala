@@ -1,4 +1,4 @@
-package com.aristocrat.mandrill.service
+package com.aristocrat.mandrill.services
 
 import com.aristocrat.mandrill.MandrillClient
 import com.aristocrat.mandrill.requests.Messages._
