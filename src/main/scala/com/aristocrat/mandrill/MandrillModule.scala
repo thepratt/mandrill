@@ -2,6 +2,7 @@ package com.aristocrat.mandrill
 
 import com.aristocrat.mandrill.requests.MandrillRequest
 import com.google.inject.{Inject, Singleton}
+import com.twitter.finagle.httpx.Response.Ok
 import com.twitter.finagle.httpx.{Message, Response}
 import com.twitter.finatra.annotations.Flag
 import com.twitter.finatra.httpclient.modules.HttpClientModule
@@ -27,7 +28,7 @@ object MandrillModule extends HttpClientModule with Logging {
 class MandrillClient @Inject()(
     httpClient: HttpClient,
     mapper: FinatraObjectMapper,
-    @Flag("mandrill.enabled") enabled: String,
+    @Flag("mandrill.enabled") enabled: Boolean,
     @Flag("mandrill.username") username: String,
     @Flag("mandrill.token") token: String) {
 
@@ -45,7 +46,7 @@ class MandrillClient @Inject()(
             )
 
         for {
-            response <- httpClient.execute(request)
+            response <- if (enabled) httpClient.execute(request) else Future(new Ok)
         } yield response
     }
 
